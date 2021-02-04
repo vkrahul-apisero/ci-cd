@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5f126fae-eb61-4e52-8aac-b8a23ea04542" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="munitpracticeFlow" doc:id="17d32a1e-b311-4c19-b51e-8bb6d1f7fe85" >
+		<http:listener doc:name="Listener" doc:id="9a0e2437-bed3-4305-b117-28c4722456f8" config-ref="HTTP_Listener_config" path="/munit"/>
+		<set-variable value='#["vatsal"]' doc:name="Set Variable" doc:id="12b1249d-1cfd-4853-b4d6-7492d7464671" variableName="name"/>
+		<set-payload value='#["my name is vatsal"]' doc:name="Set Payload" doc:id="ef8816e5-4718-4ef4-a00e-b4ebd3f7787e" />
+	</flow>
+</mule>
